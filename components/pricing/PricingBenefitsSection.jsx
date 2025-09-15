@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BenefitsSectionPrice = () => {
+const PricingBenefitsSection = () => {
     return (
         <div class="max-w-7xl bg-transparent mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
 
@@ -56,4 +56,4 @@ const BenefitsSectionPrice = () => {
     )
 }
 
-export default BenefitsSectionPrice
+export default PricingBenefitsSection

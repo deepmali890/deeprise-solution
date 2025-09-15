@@ -1,7 +1,7 @@
-import { CaseStudyHero } from '@/components/case-studies-components/CaseStudyHero'
-import ProjectTimeline from '@/components/case-studies-components/ProjectTimeline'
-import ContactSection from '@/components/ContactSection'
-import FaqSection from '@/components/FaqSection'
+import { CaseStudyHero } from '@/components/case-studies/CaseStudyHero'
+import ProjectTimeline from '@/components/case-studies/ProjectTimeline'
+import ContactSection from '@/components/common/ContactSection'
+import FaqSection from '@/components/common/FaqSection'
 import React from 'react'
 
 const page = () => {

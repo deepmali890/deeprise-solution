@@ -1,16 +1,16 @@
-import ContactSection from '@/components/ContactSection'
-import FaqSection from '@/components/FaqSection'
-import AllService from '@/components/serviceComponents/AllService'
-import OurDesign from '@/components/serviceComponents/OurDesign'
-import ServiceHero from '@/components/serviceComponents/ServiceHero'
-import ServiceStates from '@/components/serviceComponents/ServiceStates'
+import ContactSection from '@/components/common/ContactSection'
+import FaqSection from '@/components/common/FaqSection'
+import AllServices from '@/components/services/AllServices'
+import OurDesign from '@/components/services/OurDesign'
+import ServiceHero from '@/components/services/ServiceHero'
+import ServiceStates from '@/components/services/ServiceStates'
 import React from 'react'
 
 const page = () => {
     return (
         <div>
             <ServiceHero />
-            <AllService />
+            <AllServices />
             <OurDesign />
             <ServiceStates />
             <FaqSection />

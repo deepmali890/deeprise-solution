@@ -33,7 +33,7 @@ const navItems = [
     },
     {
         name: "Pricing Plan",
-        link: "/pricing_plan",
+        link: "/pricing-plan",
     },
 ];
 
@@ -52,7 +52,9 @@ const Header = () => {
                     <NavItems items={navItems} />
                     <div className="flex items-center gap-4 ">
 
-                        <Link href={'/contact'}>
+                        <Link href="https://calendly.com/deepmali590/30min"
+                        target="_blank"
+                        >
                             <NavbarButton variant="primary" className="flex gap-2 items-center ">
                                 <SlEarphonesAlt /> Book a call</NavbarButton>
                         </Link>
@@ -91,7 +93,9 @@ const Header = () => {
                                 variant="primary"
                                 className="w-full"
                             >
-                                <Link href={'/contact'}>
+                                <Link href="https://calendly.com/deepmali590/30min"
+                                target="_blank"
+                                >
                                     Book a call
                                 </Link>
                             </NavbarButton>

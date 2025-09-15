@@ -1,15 +1,15 @@
-import ContactSection from '@/components/ContactSection'
-import FaqSection from '@/components/FaqSection'
-import BenefitsSectionPrice from '@/components/pricing/BenefitsSectionPrice'
+import ContactSection from '@/components/common/ContactSection'
+import FaqSection from '@/components/common/FaqSection'
 import PriceBanner from '@/components/pricing/PriceBanner'
-import PricingSection from '@/components/PricingSection'
+import PricingSection from '@/components/common/PricingSection'
 import React from 'react'
+import PricingBenefitsSection from '@/components/pricing/PricingBenefitsSection'
 
 const page = () => {
   return (
     <>
       <PriceBanner />
-      <BenefitsSectionPrice />
+      <PricingBenefitsSection />
       <div className=' my-20'>
         <PricingSection />
       </div>

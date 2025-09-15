@@ -10,7 +10,7 @@ import {
     IconTerminal2,
 } from "@tabler/icons-react";
 
-export function BenifitsSection() {
+export function HomeBenefitsSection() {
     const features = [
         {
             title: "Custom Web Solutions",

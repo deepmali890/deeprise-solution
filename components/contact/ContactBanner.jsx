@@ -10,9 +10,10 @@ const ContactBanner = () => {
 
         <div className="p-4 max-w-4xl mx-auto relative z-10 w-full">
           {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-snug">
-            Let’s Build Something <br className="hidden sm:block" /> Extraordinary Together
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-snug sm:leading-snug md:leading-snug lg:leading-tight xl:leading-tight text-center md:text-left">
+            Let’s Build Something <br className="hidden md:block" /> Extraordinary Together
           </h1>
+
 
           {/* Subheading */}
           <p className="mt-4 font-normal text-sm sm:text-base md:text-lg text-neutral-300 max-w-xl mx-auto">

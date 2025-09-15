@@ -1,9 +1,9 @@
 import React from 'react'
-import { Spotlight } from './ui/Spotlight'
+import { Spotlight } from '../ui/Spotlight'
 import { cn } from '@/lib/utils'
-import Button from './Button'
+import Button from '../common/Button'
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-import { PointerHighlight } from './ui/pointer-highlight';
+import { PointerHighlight } from '../ui/pointer-highlight';
 
 
 
@@ -25,7 +25,7 @@ const HeroSection = () => {
 
                 <div className="relative z-10 mx-auto w-full max-w-8xl p-4 pt-20 md:pt-0">
                     {/* Hero Heading */}
-                    <h1 className="bg-opacity-50 bg-gradient-to-b py-4 from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-7xl">
+                    <h1 className="bg-opacity-50 bg-gradient-to-b py-4 from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent">
                         DeepRise Solution <br /> Empowering Your Digital Future
                     </h1>
 

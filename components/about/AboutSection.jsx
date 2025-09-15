@@ -1,21 +1,20 @@
 import React from 'react'
 
-const AboutUsCompany = () => {
+const AboutSection = () => {
   return (
     <div className="bg-base-200 py-8 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-12 md:gap-16 lg:gap-24">
           <div className="space-y-4 text-center">
             <h2 className="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">About Us</h2>
-            <p className="text-base-content/80 text-xl">
-              At Deeprise, we believe in turning ideas into digital realities. Our journey is fueled by innovation, 
-              collaboration, and a relentless pursuit of excellence. With every project, we push boundaries, deliver 
+            <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto text-center px-4 sm:px-0">
+              At Deeprise, we believe in turning ideas into digital realities. Our journey is fueled by innovation,
+              collaboration, and a relentless pursuit of excellence. With every project, we push boundaries, deliver
               impactful solutions, and leave a mark of quality and trust. Together, we grow, evolve, and rise.
             </p>
-            <a href="#" className="btn btn-primary btn-lg btn-gradient">
-              Read More
-              <span className="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-            </a>
+
+
+
           </div>
 
           <div className="relative mb-8 h-full w-full rounded-xl max-lg:space-y-6 sm:mb-16 lg:mb-24 lg:h-161">
@@ -53,4 +52,4 @@ const AboutUsCompany = () => {
   )
 }
 
-export default AboutUsCompany
+export default AboutSection

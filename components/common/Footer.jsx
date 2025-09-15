@@ -124,13 +124,18 @@ const Footer = () => {
       <div className="flex flex-wrap max-md:flex-col gap-4">
         <ul className="md:flex md:space-x-6 max-md:space-y-4">
           <li>
-            <a href='javascript:void(0)' className="hover:text-white text-slate-400 text-sm font-normal">Terms of Service</a>
+            <Link
+              href="/terms-of-service"
+              className="text-slate-400 text-sm font-normal hover:text-white"
+            >
+              Terms of Service
+            </Link>
           </li>
           <li>
-            <a href='javascript:void(0)' className="hover:text-white text-slate-400 text-sm font-normal">Privacy Policy</a>
+            <Link href='/privacy-policy' className="hover:text-white text-slate-400 text-sm font-normal">Privacy Policy</Link>
           </li>
           <li>
-            <a href='javascript:void(0)' className="hover:text-white text-slate-400 text-sm font-normal">Security</a>
+            <Link href='/security' className="hover:text-white text-slate-400 text-sm font-normal">Security</Link>
           </li>
         </ul>
 

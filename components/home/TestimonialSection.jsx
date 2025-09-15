@@ -1,5 +1,5 @@
 import React from 'react'
-import { InfiniteMovingCards } from './ui/infinite-moving-cards'
+import { InfiniteMovingCards } from '../ui/infinite-moving-cards'
 
 const TestimonialSection = () => {
     return (
@@ -13,7 +13,7 @@ const TestimonialSection = () => {
                     <div
                         className="relative flex items-end justify-start rounded-2xl overflow-hidden shadow-lg h-64 sm:h-auto md:h-80 xl:h-auto"
                         style={{
-                            backgroundImage: `url('/Dilip.png')`,
+                            backgroundImage: `url('/images/team/Dilip.jpg')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',

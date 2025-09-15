@@ -1,9 +1,8 @@
-import AboutUsCompany from "@/components/AboutUsCompany";
-import Button from "@/components/Button";
-import ContactSection from "@/components/ContactSection";
-import FaqSection from "@/components/FaqSection";
-import FeatureSection from "@/components/FeatureSection";
-import TeamSection from "@/components/TeamSection";
+import AboutSection from "@/components/about/AboutSection";
+import TeamSection from "@/components/about/TeamSection";
+import ContactSection from "@/components/common/ContactSection";
+import FaqSection from "@/components/common/FaqSection";
+import FeatureSection from "@/components/home/FeatureSection";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import React from "react";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
@@ -15,7 +14,7 @@ const Page = () => {
         {/* Background Video */}
         <video
           className="absolute top-0 left-0 w-full h-screen object-cover"
-          src="/dreamnest2.mp4"   // replace with your video path
+          src="/video/dreamnest2.mp4"   // replace with your video path
           autoPlay
           loop
           muted
@@ -39,33 +38,33 @@ const Page = () => {
             </p>
 
             {/* Services Grid */}
-            <div className="w-full py-6 flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
-                <div className="flex items-center gap-2 text-white text-lg">
-                  <IoIosCheckmarkCircleOutline className="w-6 h-6" />
-                  <span>Web Application Development</span>
+            <div className="w-full py-6 px-4 sm:px-6 md:px-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 w-full max-w-7xl mx-auto">
+                <div className="flex items-center gap-3 text-white text-base sm:text-lg md:text-xl min-w-[220px]">
+                  <IoIosCheckmarkCircleOutline className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Web Application Development</span>
                 </div>
-                <div className="flex items-center gap-2 text-white text-lg">
-                  <IoIosCheckmarkCircleOutline className="w-6 h-6" />
-                  <span>Mobile App Development</span>
+                <div className="flex items-center gap-3 text-white text-base sm:text-lg md:text-xl min-w-[200px]">
+                  <IoIosCheckmarkCircleOutline className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Mobile App Development</span>
                 </div>
-                <div className="flex items-center gap-2 text-white text-lg">
-                  <IoIosCheckmarkCircleOutline className="w-6 h-6" />
-                  <span>SEO & Digital Optimization</span>
+                <div className="flex items-center gap-3 text-white text-base sm:text-lg md:text-xl min-w-[200px]">
+                  <IoIosCheckmarkCircleOutline className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
+                  <span className="whitespace-nowrap">SEO & Digital Optimization</span>
                 </div>
-                <div className="flex items-center gap-2 text-white text-lg">
-                  <IoIosCheckmarkCircleOutline className="w-6 h-6" />
-                  <span>UI/UX Design</span>
+                <div className="flex items-center gap-3 text-white text-base sm:text-lg md:text-xl min-w-[180px]">
+                  <IoIosCheckmarkCircleOutline className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
+                  <span className="whitespace-nowrap">UI/UX Design</span>
                 </div>
               </div>
             </div>
+
 
           </div>
         </div>
       </div>
 
-      <AboutUsCompany />
-
+      <AboutSection />
       <FeatureSection />
       <TeamSection />
       <FaqSection />

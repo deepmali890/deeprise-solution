@@ -47,10 +47,15 @@ const ProjectTimeline = () => {
                   index % 2 === 0 ? 'rotate-3' : '-rotate-3'
                 }`}
               />
+              {/* ID Number with responsive positioning */}
               <span
-                className={`absolute text-6xl font-extrabold text-white opacity-80 ${
-                  index % 2 === 0 ? '-left-8 bottom-4' : '-right-8 bottom-4'
-                }`}
+                className={`
+                  absolute font-extrabold text-white opacity-80
+                  text-4xl sm:text-5xl md:text-6xl
+                  ${index % 2 === 0 
+                    ? 'left-2 sm:left-2 md:left-4 lg:-left-6 bottom-2 xl:-left-0 sm:bottom-4' 
+                    : 'right-2 sm:right-2 md:right-4 lg:-right-6 xl:-right-0 bottom-2 sm:bottom-4'}
+                `}
               >
                 {step.id}
               </span>
@@ -60,7 +65,7 @@ const ProjectTimeline = () => {
             <div className="w-full md:w-1/2">
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-pink-600 text-white p-3 rounded-lg shadow-lg">
-                  <i className={`${step.icon} text-xl`}></i>
+                  {step.icon}
                 </div>
                 <h2 className="text-2xl font-bold text-white">{step.title}</h2>
               </div>

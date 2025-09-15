@@ -1,7 +1,7 @@
 import React from "react";
-import { StickyScroll } from "./ui/sticky-scroll-reveal";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import Link from "next/link";
+import { StickyScroll } from "../ui/sticky-scroll-reveal";
 
 const allServices = [
     {
@@ -59,7 +59,7 @@ const allServices = [
         content: (
             <div className="flex h-full w-full items-center justify-center text-white">
                 <img
-                    src="https://images.unsplash.com/photo-1613487270668-2b4df6406cd2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -75,7 +75,7 @@ const allServices = [
         content: (
             <div className="flex h-full w-full items-center justify-center text-white">
                 <img
-                    src="https://images.unsplash.com/photo-1581091870622-3c29d4268b46?q=80&w=687&auto=format&fit=crop"
+                    src="https://plus.unsplash.com/premium_photo-1678566153919-86c4ba4216f1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -91,7 +91,7 @@ const allServices = [
         content: (
             <div className="flex h-full w-full items-center justify-center text-white">
                 <img
-                    src="https://images.unsplash.com/photo-1612831660933-2b8f0cba21c1?q=80&w=687&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -101,13 +101,13 @@ const allServices = [
         ),
     },
     {
-        title: "Cloud Integration", // my suggested extra service
+        title: "Cloud Integration",
         description:
             "We integrate your applications with cloud platforms for scalable, secure, and efficient solutions that grow with your business.",
         content: (
             <div className="flex h-full w-full items-center justify-center text-white">
                 <img
-                    src="https://images.unsplash.com/photo-1531497865142-2f3f6db33e2b?q=80&w=687&auto=format&fit=crop"
+                    src="https://media.istockphoto.com/id/1081869322/photo/thell-find-an-algorithm-that-works.jpg?s=2048x2048&w=is&k=20&c=h99LQnT45_Pyr_JY08CzWgkBoUShX8T7m3kqj4jajmo="
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -118,25 +118,19 @@ const allServices = [
     },
 ];
 
-const ServiceSection = () => {
+const AllServices = () => {
     return (
         <div className="py-16">
             <div className="w-full ">
                 <h1 className="bg-opacity-50 bg-gradient-to-b py-4 from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl">
-                    Our Expertise
+                    Our Services
                 </h1>
-                {/* Only pass first 4 services to StickyScroll */}
-                <StickyScroll content={allServices.slice(0, 4)} />
+                {/* Show ALL services */}
+                <StickyScroll content={allServices} />
             </div>
 
-            <Link href="/services">
-                <div className="text-center mt-10 w-fit mx-auto py-2 px-4 flex items-center gap-2 border border-white text-white cursor-pointer transition-all duration-300 hover:bg-white hover:text-black hover:gap-4 rounded">
-                    Read More
-                    <FaRegArrowAltCircleRight className="transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-            </Link>
         </div>
     );
 };
 
-export default ServiceSection;
+export default AllServices;

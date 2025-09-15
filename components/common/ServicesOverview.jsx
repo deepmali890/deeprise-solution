@@ -1,7 +1,7 @@
 import React from "react";
+import { StickyScroll } from "../ui/sticky-scroll-reveal";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import Link from "next/link";
-import { StickyScroll } from "../ui/sticky-scroll-reveal";
 
 const allServices = [
     {
@@ -101,7 +101,7 @@ const allServices = [
         ),
     },
     {
-        title: "Cloud Integration",
+        title: "Cloud Integration", // my suggested extra service
         description:
             "We integrate your applications with cloud platforms for scalable, secure, and efficient solutions that grow with your business.",
         content: (
@@ -118,19 +118,25 @@ const allServices = [
     },
 ];
 
-const AllService = () => {
+const ServicesOverview = () => {
     return (
         <div className="py-16">
             <div className="w-full ">
                 <h1 className="bg-opacity-50 bg-gradient-to-b py-4 from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl">
                     Our Expertise
                 </h1>
-                {/* Show ALL services */}
-                <StickyScroll content={allServices} />
+                {/* Only pass first 4 services to StickyScroll */}
+                <StickyScroll content={allServices.slice(0, 4)} />
             </div>
 
+            <Link href="/services">
+                <div className="text-center mt-10 w-fit mx-auto py-2 px-4 flex items-center gap-2 border border-white text-white cursor-pointer transition-all duration-300 hover:bg-white hover:text-black hover:gap-4 rounded">
+                    Read More
+                    <FaRegArrowAltCircleRight className="transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+            </Link>
         </div>
     );
 };
 
-export default AllService;
+export default ServicesOverview;

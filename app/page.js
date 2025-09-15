@@ -1,11 +1,11 @@
-import { BenifitsSection } from "@/components/BenifitsSection";
-import ContactSection from "@/components/ContactSection";
-import FaqSection from "@/components/FaqSection";
-import FeatureSection from "@/components/FeatureSection";
-import HeroSection from "@/components/HeroSection";
-import PricingSection from "@/components/PricingSection";
-import ServiceSection from "@/components/ServiceSection";
-import TestimonialSection from "@/components/TestimonialSection";
+import ContactSection from "@/components/common/ContactSection";
+import FaqSection from "@/components/common/FaqSection";
+import FeatureSection from "@/components/home/FeatureSection";
+import HeroSection from "@/components/home/HeroSection";
+import PricingSection from "@/components/common/PricingSection";
+import TestimonialSection from "@/components/home/TestimonialSection";
+import { HomeBenefitsSection } from "@/components/home/HomeBenefitsSection";
+import ServicesOverview from "@/components/common/ServicesOverview";
 
 export default function Home() {
   return (
@@ -13,8 +13,8 @@ export default function Home() {
     <div className="bg-black text-white">
       <HeroSection />
       <FeatureSection />
-      <BenifitsSection />
-      <ServiceSection />
+      <HomeBenefitsSection />
+      <ServicesOverview />
       <PricingSection />
       <TestimonialSection />
       <FaqSection />

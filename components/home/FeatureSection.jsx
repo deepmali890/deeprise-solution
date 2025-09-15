@@ -1,12 +1,13 @@
 import React from 'react'
-import { WobbleCard } from './ui/wobble-card'
+import { WobbleCard } from '../ui/wobble-card'
 
 const FeatureSection = () => {
     return (
         <>
-            <h1 className="bg-opacity-50 bg-gradient-to-b py-4 from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl mb-8">
-              Shaping the Future <br /> Through Innovation & Code
+            <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-snug sm:leading-snug md:leading-tight lg:leading-tight py-4 mb-8">
+                Shaping the Future <br className="block sm:hidden" /> Through Innovation & Code
             </h1>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full px-2">
                 <WobbleCard
                     containerClassName="col-span-1 lg:col-span-2 h-full bg-pink-800 min-h-[500px] lg:min-h-[300px]"

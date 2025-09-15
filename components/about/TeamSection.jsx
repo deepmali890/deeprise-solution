@@ -5,17 +5,17 @@ const TeamSection = () => {
     {
       name: "Dilip Mali",
       role: "Full Stack Developer",
-      image: "/Dilip.jpg",
+      image: "/images/team/Dilip.jpg",
     },
     {
       name: "Puspendra Rajpurohit",
       role: "Web Developer",
-      image: "/puspendra.jpg",
+      image: "/images/team/puspendra.jpg",
     },
     {
       name: "Tarun Malviya",
       role: "App Developer",
-      image: "/tarun.jpg",
+      image: "/images/team/tarun.jpg",
     },
     {
       name: "Nikolas Brooten",
@@ -57,11 +57,11 @@ const TeamSection = () => {
                     className="w-full h-[400px] object-cover"
                   />
                   <div className="absolute bottom-5 left-0 w-full text-center">
-                    <div className="relative mx-5 overflow-hidden rounded-lg bg-white/20 px-3 py-5 dark:bg-dark-2">
-                      <h3 className="text-base font-semibold text-white">
+                    <div className="relative mx-5 overflow-hidden rounded-lg bg-white/80 px-3 py-5 dark:bg-dark-2">
+                      <h3 className="text-base font-semibold text-black">
                         {member.name}
                       </h3>
-                      <p className="text-xs text-white">{member.role}</p>
+                      <p className="text-xs text-black">{member.role}</p>
                       <div>
                         <span className="absolute bottom-0 left-0">
                           <svg
