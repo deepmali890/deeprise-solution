@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
+import { FaSquareUpwork } from 'react-icons/fa6';
+import { TbBrandFiverr } from "react-icons/tb";
 
 const Footer = () => {
   return (
@@ -9,7 +11,7 @@ const Footer = () => {
           <a href='javascript:void(0)'>
             <img src="/favicon.ico" alt="logo" className="w-36" />
           </a>
-          <ul className="mt-8 flex space-x-5">
+          <ul className="mt-8 flex space-x-5 items-center">
             <li>
               <a href='/'>
                 <svg xmlns="http://www.w3.org/2000/svg" className="fill-blue-600 w-8 h-8" viewBox="0 0 49.652 49.652">
@@ -55,6 +57,14 @@ const Footer = () => {
                   <path fill="#fff" d="m680.617 557.98 262.632-305.288h-62.235L652.97 517.77 470.833 252.692H260.759l275.427 400.844-275.427 320.142h62.239l240.82-279.931 192.35 279.931h210.074L680.601 557.98zM345.423 299.545h95.595l440.024 629.411h-95.595z" data-original="#ffffff" />
                 </svg>
               </a>
+            </li>
+            <li>
+              <a href="https://www.fiverr.com/s/Q7Vrvv3"> <TbBrandFiverr className='text-[#1DBF73] text-[25px]' /></a>
+
+            </li>
+            <li>
+              <a href="https://www.upwork.com/freelancers/~01406885268b3012af?mp_source=share"> <FaSquareUpwork  className=' text-[25px]' /></a>
+
             </li>
           </ul>
         </div>

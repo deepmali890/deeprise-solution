@@ -68,7 +68,7 @@ export const NavBody = ({
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl  flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl  flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 xl:flex dark:bg-transparent",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className
       )}>
@@ -88,7 +88,7 @@ export const NavItems = ({
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 xl:flex xl:space-x-2",
         className
       )}>
       {items.map((item, idx) => (
@@ -134,7 +134,7 @@ export const MobileNav = ({
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 xl:hidden",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className
       )}>
@@ -194,14 +194,15 @@ export const NavbarLogo = () => {
   return (
     <Link
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black">
+      className="relative z-20 mr-4 flex items-center  px-2 py-1 text-sm font-normal text-black">
       <img
         src="/favicon.ico"
         alt="logo"
         width={50}
         height={50} />
 
-      <span className="font-medium text-white dark:text-white">DeepRise Solution</span> 
+    <span className="text-white dark:text-white text-xl font-asimovian">Deeprise</span>
+
     </Link>
   );
 };

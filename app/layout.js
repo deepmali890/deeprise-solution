@@ -26,10 +26,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <main className="bg-black text-white">
-        <Header />
-        <Toaster/>
+     
+          <Header />
+          <Toaster />
           {children}
-        <Footer />
+          <Footer />
         </main>
       </body>
     </html>

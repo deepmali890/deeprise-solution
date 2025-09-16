@@ -5,7 +5,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 const plans = [
     {
         name: "Starter Website",
-        price: "₹9,999",
+        price: "₹9,712",
         features: [
             "1 Page Responsive Website",
             "Functional website",
@@ -18,7 +18,7 @@ const plans = [
     },
     {
         name: "Business Website",
-        price: "₹24,999",
+        price: "₹31,449",
         tag: "Most Popular",
         features: [
             "5 Page Custom Website",
@@ -37,7 +37,7 @@ const plans = [
     },
     {
         name: "E-Commerce Solution",
-        price: "₹64,999",
+        price: "₹64,747",
         features: [
             "10 pages",
             "Functional website",
