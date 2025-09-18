@@ -23,6 +23,7 @@ import { logouedOutUser } from "@/redux/slices/auth.slice";
 import Login from "../auth/Login";
 import { useRouter } from "next/navigation";
 import OfferButton from "./OfferButton";
+import { CiLogout } from "react-icons/ci";
 
 const number = "919636249430";
 const message = "Hello DeepRise, I am interested in your services";
@@ -94,7 +95,7 @@ const Header = () => {
 
                 <Link href="/offer">
                   <div >
-                    <OfferButton/>
+                    <OfferButton />
                   </div>
                 </Link>
 
@@ -241,6 +242,13 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
+
+              <div
+                onClick={() => {
+                  handleLogout();           // logout action
+                  setIsMobileMenuOpen(false); // nav close
+                }}
+                className="text-black py-2 px-4 border-t-1 flex justify-between items-center">Sign Out <CiLogout /></div>
             </div>
           </MobileNavMenu>
 

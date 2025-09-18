@@ -42,7 +42,7 @@ export const fatchCurrentUser = createAsyncThunk(
             console.log('fatchCurrentUser', data)
             return data
         } catch (error) {
-            return rejectWithValue(error.response?.data || { field: "general", message: "Current user failed" })
+            return rejectWithValue(error.response?.data || { field: "general", message: "No active session" })
         }
     }
 )
@@ -82,6 +82,7 @@ const authSlice = createSlice({
     initialState: {
         user: null,
         loading: false,
+        initialLoad: true,
         error: null,
     },
     reducers: {},
@@ -117,15 +118,15 @@ const authSlice = createSlice({
 
             // current user
             .addCase(fatchCurrentUser.pending, (state) => {
-                state.loading = true
-                state.error = null
+                state.initialLoad = true;
             })
             .addCase(fatchCurrentUser.fulfilled, (state, action) => {
-                state.loading = false
+                state.initialLoad = false;
                 state.user = action.payload
             })
             .addCase(fatchCurrentUser.rejected, (state, action) => {
-                state.loading = false
+                state.initialLoad = false;
+                state.user = null;
                 state.error = action.payload
             })
 
