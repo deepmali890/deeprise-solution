@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk(
             return data
 
         } catch (error) {
-            return rejectWithValue(error.response?.data?.message || 'Registration failed')
+            return rejectWithValue(error.response?.data || { field: "general", message: "Registration failed" })
         }
     }
 )
@@ -23,15 +23,15 @@ export const loginUser = createAsyncThunk(
     'auth/loginUser',
     async (credentials, { rejectWithValue }) => {
         try {
-            const { data } = await axiosInstance.post('/api/auth/user/login', credentials)
-            console.log('loginUser', data)
-            return data
-
+            const { data } = await axiosInstance.post('/api/auth/user/login', credentials);
+            console.log('loginUser', data);
+            return data;
         } catch (error) {
-            return rejectWithValue(error.response?.data?.message || 'Login failed')
+            return rejectWithValue(error.response?.data || { field: "general", message: "Login failed" });
         }
     }
-)
+);
+
 
 // Current user
 export const fatchCurrentUser = createAsyncThunk(
@@ -42,7 +42,7 @@ export const fatchCurrentUser = createAsyncThunk(
             console.log('fatchCurrentUser', data)
             return data
         } catch (error) {
-            return rejectWithValue(error.response?.data?.message || 'Current user failed')
+            return rejectWithValue(error.response?.data || { field: "general", message: "Current user failed" })
         }
     }
 )
@@ -55,7 +55,24 @@ export const logouedOutUser = createAsyncThunk(
             console.log('logouedOutUser', data)
             return data
         } catch (error) {
-            return rejectWithValue(error.response?.data?.message || 'Logout failed')
+            return rejectWithValue(error.response?.data || { field: "general", message: "Logout failed" })
+        }
+    }
+)
+
+
+export const updateProfile = createAsyncThunk(
+    'auth/updateProfile',
+    async (formData, { rejectWithValue }) => {
+        try {
+            const { data } = await axiosInstance.put('/api/auth/user/edit-profile', formData,
+                { headers: { "Content-Type": "multipart/form-data" } }
+            )
+            console.log('updateProfile', data)
+            return data
+
+        } catch (error) {
+            return rejectWithValue(error.response?.data || { field: "general", message: "Update profile failed" })
         }
     }
 )
@@ -94,9 +111,8 @@ const authSlice = createSlice({
                 state.user = action.payload
             })
             .addCase(loginUser.rejected, (state, action) => {
-                state.loading = false
-                const message = action.payload || "Login failed";
-                state.error = message;
+                state.loading = false;
+                state.error = action.payload;
             })
 
             // current user
@@ -123,6 +139,20 @@ const authSlice = createSlice({
                 state.user = null
             })
             .addCase(logouedOutUser.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
+
+            // update profile
+            .addCase(updateProfile.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(updateProfile.fulfilled, (state, action) => {
+                state.loading = false
+                state.user = action.payload
+            })
+            .addCase(updateProfile.rejected, (state, action) => {
                 state.loading = false
                 state.error = action.payload
             })

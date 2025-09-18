@@ -3,7 +3,7 @@
 import { registerUser } from "@/redux/slices/auth.slice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaUser, FaEnvelope, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -22,7 +22,6 @@ const Signup = ({ onClose, onSwitch }) => {
 
 
   const dispatch = useDispatch();
-  const router = useRouter();
 
   const { loading, error, user } = useSelector((state) => state.auth);
 
@@ -31,8 +30,14 @@ const Signup = ({ onClose, onSwitch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(registerUser(formData))
-    onClose()
   };
+
+  useEffect(() => {
+    if (user && !loading && !error) {
+      onClose()
+    }
+
+  }, [user, loading, error, onClose])
 
   const handleGoogleSignIn = () => {
     console.log("Signing in with Google");
@@ -82,9 +87,9 @@ const Signup = ({ onClose, onSwitch }) => {
                   onChange={handleChange}
                   placeholder="Enter your full name"
                   className="w-full pl-10 pr-3 py-2 rounded-md border-2 border-black  text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-white"
-                  required
                 />
               </div>
+              {error?.field === "fullName" && <p className="text-red-500 text-sm">{error.message}</p>}
             </div>
 
             {/* Email */}
@@ -101,9 +106,9 @@ const Signup = ({ onClose, onSwitch }) => {
                   onChange={handleChange}
                   placeholder="Enter your email"
                   className="w-full pl-10 pr-3 py-2 rounded-md border-2 border-black text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
-                  required
                 />
               </div>
+              {error?.field === "email" && <p className="text-red-500 text-sm">{error.message}</p>}
             </div>
 
             {/* Password */}
@@ -119,8 +124,8 @@ const Signup = ({ onClose, onSwitch }) => {
                   onChange={handleChange}
                   placeholder="Enter your password"
                   className="w-full pl-3 pr-10 py-2 rounded-md border-2 border-black text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-white"
-                  required
                 />
+
                 <div
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
                   onClick={() => setShowPassword(!showPassword)}
@@ -131,6 +136,7 @@ const Signup = ({ onClose, onSwitch }) => {
                     <FaEye className="text-black" />
                   )}
                 </div>
+                {error?.field === "password" && <p className="text-red-500 text-sm">{error.message}</p>}
               </div>
             </div>
 
@@ -150,18 +156,47 @@ const Signup = ({ onClose, onSwitch }) => {
                   Terms and Conditions
                 </a>
               </label>
+
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-2.5 rounded-md cursor-pointer bg-black text-white font-semibold hover:bg-black/90  border transition-all duration-300 ease-in-out"
+              disabled={loading}
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-md 
+             bg-black text-white font-semibold hover:bg-black/90 
+             transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {loading ? "Signing up..." : "Create an account"}
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                  <span>Signing up...</span>
+                </>
+              ) : (
+                "Sign Up"
+              )}
             </button>
           </form>
 
-          {error && <p>{error}</p>}
 
           <p className="mt-6 text-gray-400 text-center text-sm">
             Already have an account?{" "}
@@ -169,6 +204,7 @@ const Signup = ({ onClose, onSwitch }) => {
               Login here
             </span>
           </p>
+          {error?.field === "general" && <p className="text-red-500 text-sm">{error.message}</p>}
         </div>
 
         {/* Right Panel - Image and Text */}

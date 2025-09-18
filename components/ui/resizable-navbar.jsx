@@ -88,7 +88,7 @@ export const NavItems = ({
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 xl:flex xl:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row  items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 xl:flex xl:space-x-2",
         className
       )}>
       {items.map((item, idx) => (
@@ -134,7 +134,7 @@ export const MobileNav = ({
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 xl:hidden",
+        " z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 xl:hidden",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className
       )}>
@@ -168,16 +168,40 @@ export const MobileNavMenu = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
-            className
-          )}>
-          {children}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.5)]"
+          onClick={onClose} 
+        >
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: "0%" }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className={cn(
+              "absolute inset-y-0 left-0 h-screen w-[70%] sm:w-[60%] md:w-[50%] z-50 flex flex-col items-start justify-start gap-4 bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
+              className
+            )}
+            onClick={(e) => e.stopPropagation()} 
+          >
+            {/* Cross button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 z-50 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-neutral-800"
+            >
+              <IconX className="w-6 h-6 text-black dark:text-white" />
+            </button>
+
+            {/* Menu items */}
+            <div className="mt-12 w-full">{children}</div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 };
+
+
+
 
 export const MobileNavToggle = ({
   isOpen,
@@ -198,10 +222,10 @@ export const NavbarLogo = () => {
       <img
         src="/favicon.ico"
         alt="logo"
-        width={50}
-        height={50} />
+        width={60}
+        height={60} />
 
-    <span className="text-white dark:text-white text-xl font-asimovian">Deeprise</span>
+    <span className="text-white dark:text-white text-2xl font-asimovian">Deeprise</span>
 
     </Link>
   );

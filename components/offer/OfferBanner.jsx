@@ -9,7 +9,7 @@ const OfferBanner = () => {
     <div className="relative w-full"> {/* Header gap */}
       
       <div className="h-auto md:h-[40rem] w-full pt-24 flex flex-col items-center justify-center">
-        <div className="w-full max-w-6xl shadow-lg overflow-hidden rounded-md bg-gradient-to-r  bg-gradient-to-l from-red-900/10 via-red-800 to-black/70">
+        <div className="w-full max-w-6xl shadow-lg overflow-hidden rounded-md bg-gradient-to-r  from-red-900/10 via-red-800 to-black/70">
 
           <main className="flex flex-col md:flex-row items-center justify-center md:justify-between p-6 md:p-12 lg:p-16">
 

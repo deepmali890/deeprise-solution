@@ -1,3 +1,5 @@
+"use client"
+
 import { fatchCurrentUser } from "@/redux/slices/auth.slice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

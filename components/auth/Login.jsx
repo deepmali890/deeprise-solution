@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/redux/slices/auth.slice";
@@ -18,7 +17,6 @@ const Login = ({ onClose, onSwitch }) => {
 
 
   const dispatch = useDispatch();
-  const router = useRouter();
 
   const { loading, error, user } = useSelector((state) => state.auth);
 
@@ -90,8 +88,8 @@ const Login = ({ onClose, onSwitch }) => {
                   required
                 />
               </div>
-              {error && (
-                <p className="text-red-500 text-sm mt-1">{error}</p>
+              {error?.field === "email" && (
+                <p className="text-red-500 text-sm mt-1">{error.message}</p>
               )}
             </div>
 
@@ -121,6 +119,9 @@ const Login = ({ onClose, onSwitch }) => {
                   )}
                 </div>
               </div>
+              {error?.field === "password" && (
+                <p className="text-red-500 text-sm mt-1">{error.message}</p>
+              )}
               <div className="text-right mt-2">
                 <a href="#" className="text-black text-sm hover:underline font-medium">
                   Forgot Password?
@@ -131,12 +132,45 @@ const Login = ({ onClose, onSwitch }) => {
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full py-2.5 rounded-md cursor-pointer bg-black text-white font-semibold hover:bg-black/90 transition-colors"
+              disabled={loading}
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-md 
+             bg-black text-white font-semibold hover:bg-black/90 
+             transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {loading ? "Signing in..." : "Login"}
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                  <span>Logging in...</span>
+                </>
+              ) : (
+                "Login"
+              )}
             </button>
+
             {/* {error && <p className="text-red-500">{error}</p>} */}
           </form>
+          {error?.field === "general" && (
+            <p className="text-red-500 text-sm mt-1">{error.message}</p>
+          )}
 
           <p className="mt-6 text-gray-600 text-center text-sm">
             Don't have an account?{" "}
