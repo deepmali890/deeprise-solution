@@ -224,14 +224,21 @@ const Header = () => {
               </div>
             ) : (
               <span
-                onClick={() => setAuthModal("login")}
-                className="px-3 py-2 w-full text-center bg-white dark:bg-neutral-900 text-black dark:text-white font-bold rounded-md cursor-pointer transition-all"
+                onClick={() => {
+                  setAuthModal("login")
+                  setIsMobileMenuOpen(false);
+
+                }}
+                className="px-3 py-2 w-full text-center border-b-1 border-b-black bg-white dark:bg-neutral-900 text-black dark:text-white font-bold  cursor-pointer transition-all"
               >
                 Sign In
               </span>
             )}
 
+            {/* Mobile menu items */}
             <div className="mt-4 flex flex-col gap-2 w-full">
+
+
               {navItems.map((item, idx) => (
                 <a
                   key={idx}
@@ -243,13 +250,19 @@ const Header = () => {
                 </a>
               ))}
 
-              <div
-                onClick={() => {
-                  handleLogout();           // logout action
-                  setIsMobileMenuOpen(false); // nav close
-                }}
-                className="text-black py-2 px-4 border-t-1 flex justify-between items-center">Sign Out <CiLogout /></div>
+              {user && (
+                <div
+                  onClick={() => {
+                    handleLogout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-black py-2 px-4 border-t-1 flex justify-between items-center cursor-pointer"
+                >
+                  Sign Out <CiLogout />
+                </div>
+              )}
             </div>
+
           </MobileNavMenu>
 
         </MobileNav>
